@@ -2,7 +2,9 @@ import SwiftUI
 import Shared
 
 struct ContentView: View {
-    let greeting = Greeting().greet()
+    let name: String? = UserDefaults.standard.string(forKey: "name")
+
+    var greeting: String { Greeting().greet(name: name) }
 
     var body: some View {
         Text(greeting)
